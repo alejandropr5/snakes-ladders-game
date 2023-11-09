@@ -39,3 +39,6 @@ Where:
    ```console
    pytest
    ```
+
+## Apex implementation
+In the [apex_salesforce](apex_salesforce) folder is the Apex implementation and tests.
