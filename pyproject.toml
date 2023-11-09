@@ -5,7 +5,7 @@ description = ""
 authors = ["alejandropr05 <alejandropr05@hotmail.com>"]
 readme = "README.md"
 packages = [
-    {include = "snakes-ladders", from = "src"}
+    {include = "snakesladders", from = "src"}
 ]
 
 [tool.poetry.dependencies]
@@ -18,19 +18,20 @@ mypy = "^1.6.1"
 pytest = "^7.4.3"
 flake8 = "^6.1.0"
 pytest-cov = "^4.1.0"
+tox = "^4.11.3"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [options.package_data]
-snakes-ladders = ["py.typed"]
+snakesladders = ["py.typed"]
 
 [flake8]
 max-line-length = 79
 
 [tool.pytest.ini_options]
-addopts = "--cov=snakes-ladders"
+addopts = "--cov=snakesladders"
 testpaths = [
     "tests",
 ]
