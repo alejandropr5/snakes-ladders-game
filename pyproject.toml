@@ -1,0 +1,50 @@
+[tool.poetry]
+name = "escalera"
+version = "0.1.0"
+description = ""
+authors = ["alejandropr05 <alejandropr05@hotmail.com>"]
+readme = "README.md"
+packages = [
+    {include = "snakes-ladders", from = "src"}
+]
+
+[tool.poetry.dependencies]
+python = "<3.13,>=3.9"
+numpy = "^1.26.1"
+
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.6.1"
+pytest = "^7.4.3"
+flake8 = "^6.1.0"
+pytest-cov = "^4.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[options.package_data]
+snakes-ladders = ["py.typed"]
+
+[flake8]
+max-line-length = 79
+
+[tool.pytest.ini_options]
+addopts = "--cov=snakes-ladders"
+testpaths = [
+    "tests",
+]
+
+[tool.mypy]
+mypy_path = "src"
+check_untyped_defs = true
+disallow_any_generics = true
+ignore_missing_imports = true
+no_implicit_optional = true
+show_error_codes = true
+strict_equality = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unreachable = true
+warn_unused_configs = true
+no_implicit_reexport = true
