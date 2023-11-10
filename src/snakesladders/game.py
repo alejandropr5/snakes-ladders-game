@@ -1,17 +1,17 @@
-from typing import Optional
+from typing import Optional, Dict
 import numpy as np
 
 
 class SnakesAndLadders:
     def __init__(
         self,
-        snakes: dict[int, int] = {
+        snakes: Dict[int, int] = {
             14: 4,
             19: 8,
             22: 20,
             24: 16
         },
-        ladders: dict[int, int] = {
+        ladders: Dict[int, int] = {
             3: 11,
             6: 17,
             9: 18,
