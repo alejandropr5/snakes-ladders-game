@@ -1,3 +1,4 @@
+from typing import Optional
 import numpy as np
 
 
@@ -17,6 +18,16 @@ class SnakesAndLadders:
             10: 12
         }
     ) -> None:
+        """Create a new SnakesAndLadders object.
+
+        Args:
+            snakes (dict[int, int]): Map for board snakes, where keys
+                are the snakes head and values the snakes tail. Defaults
+                to { 14: 4, 19: 8, 22: 20, 24: 16 }.
+            ladders (dict[int, int]): Map for board ladders, where keys
+                are the ladders start and values the ladders end.
+                Defaults to { 3: 11, 6: 17, 9: 18, 10: 12 }.
+        """
         self.__snakes = snakes
         self.__ladders = ladders
         self.__board = np.array([[21, 22, 23, 24, 25],
@@ -42,14 +53,27 @@ class SnakesAndLadders:
         return self.__pos
 
     @pos.setter
-    def pos(self) -> None:
+    def pos(self, pos: Optional[int]) -> None:
         print("Invalid variable assignation. Use move() method instead.")
 
     @staticmethod
     def roll_dice() -> int:
+        """Simulate rolling a dice, returning a random integer between
+        1 and 6.
+        """
         return np.random.randint(1, 7)
 
     def move(self, movement: int) -> str:
+        """Change the player's position given a number of moves taking
+            into account whether he falls into a snake or ladder.
+
+        Args:
+            movement (int): Number of positions to move.
+
+        Returns:
+            str: Message with current position. Indicating whether the
+                player fell into a snake or ladder.
+        """
         self.__pos += movement
         message = f"You are in position {self.pos}"
         if self.pos <= 25:
@@ -68,6 +92,7 @@ class SnakesAndLadders:
         return ""
 
     def __str__(self) -> str:
+        """Return the current state of the board as a string."""
         header = ("This is your current board:\n")
         y_margin = "+------"*5 + "+\n"
 
@@ -93,7 +118,8 @@ class SnakesAndLadders:
 
         return board
 
-    def play_game(self):
+    def play_game(self) -> None:
+        """Run the game via console."""
         print("Welcome to the Snakes and Ladders game! ")
         input("Press enter to start...")
 
