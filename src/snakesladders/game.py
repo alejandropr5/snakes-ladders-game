@@ -54,7 +54,8 @@ class SnakesAndLadders:
 
     @pos.setter
     def pos(self, pos: Optional[int]) -> None:
-        print("Invalid variable assignation. Use move() method instead.")
+        raise AttributeError("Invalid variable assignation."
+                             "Use move() method instead.")
 
     @staticmethod
     def roll_dice() -> int:
@@ -91,7 +92,7 @@ class SnakesAndLadders:
             return message
         return ""
 
-    def __str__(self) -> str:
+    def __str__(self) -> str:  # pragma: no cover
         """Return the current state of the board as a string."""
         header = ("This is your current board:\n")
         y_margin = "+------"*5 + "+\n"
@@ -118,7 +119,7 @@ class SnakesAndLadders:
 
         return board
 
-    def play_game(self) -> None:
+    def play_game(self) -> None:  # pragma: no cover
         """Run the game via console."""
         print("Welcome to the Snakes and Ladders game! ")
         input("Press enter to start...")
