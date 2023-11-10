@@ -34,7 +34,7 @@ public class SnakesAndLadders {
     * @return  The new position
     */
     public static Integer setGameState (Integer initPos, Integer movement){
-        Integer newPos = initPos += movement;
+        Integer newPos = initPos + movement;
         if (newPos <= 25) {
             if (snakes.keySet().contains(newPos)){
                 newPos = snakes.get(newPos);
