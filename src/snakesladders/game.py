@@ -54,7 +54,7 @@ class SnakesAndLadders:
 
     @pos.setter
     def pos(self, pos: Optional[int]) -> None:
-        raise AttributeError("Invalid variable assignation."
+        raise AttributeError("Invalid variable assignation. "
                              "Use move() method instead.")
 
     @staticmethod
@@ -65,7 +65,7 @@ class SnakesAndLadders:
         return np.random.randint(1, 7)
 
     def move(self, movement: int) -> str:
-        """Change the player's position given a number of moves taking
+        """Change the player's position given a number of moves, taking
             into account whether he falls into a snake or ladder.
 
         Args:
@@ -81,12 +81,12 @@ class SnakesAndLadders:
             if self.pos in self.__snakes:
                 new_pos = self.__snakes[self.pos]
                 message = (f"Oh no! You landed on square {self.pos} but fell"
-                           f" by a snake to square {new_pos}")
+                           f" by a snake to square {new_pos}.")
                 self.__pos = new_pos
             if self.pos in self.__ladders:
                 new_pos = self.__ladders[self.pos]
                 message = (f"You landed on square {self.pos} but took a "
-                           f"shortcut to position {new_pos}!")
+                           f"shortcut to square {new_pos}!")
                 self.__pos = new_pos
 
             return message
@@ -124,7 +124,7 @@ class SnakesAndLadders:
         print("Welcome to the Snakes and Ladders game! ")
         input("Press enter to start...")
 
-        while self.pos < 25:
+        while self.pos <= 25:
             print(self)
             input("Press enter to roll the dice...")
             dice_val = self.roll_dice()
